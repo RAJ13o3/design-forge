@@ -6,46 +6,73 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 
-// Images
-import heroHome from "@/assets/hero-home.jpg";
-import heroServices from "@/assets/hero-services.jpg";
-import heroAbout from "@/assets/hero-about.jpg";
+/* ----------------------------------
+   Vite-safe image imports (STATIC)
+----------------------------------- */
+const DPREVIEW = import.meta.glob(
+  "@/assets/3DPREVIEW/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
 
+const ON_SITE_WORK = import.meta.glob(
+  "@/assets/ON_SITE_WORK/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
+
+const RESIDENTIAL_KITCHEN = import.meta.glob(
+  "@/assets/RESIDENTIAL_KITCHEN/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
+
+const RESIDENTIAL_BED_ROOM = import.meta.glob(
+  "@/assets/RESIDENTIAL_BED_ROOM/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
+
+const POOJA_ROOM = import.meta.glob(
+  "@/assets/POOJA_ROOM/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
+
+/* ----------------------------------
+   Helper: Map glob results
+----------------------------------- */
+const mapImages = (images: Record<string, any>) =>
+  Object.values(images).map((img) => img.default);
+
+/* ----------------------------------
+   Categories Config
+----------------------------------- */
 const categories = [
   {
-    id: "kitchen",
-    title: "Kitchen",
-    description: "Modern modular and custom kitchen designs",
-    cover: heroHome,
-    images: [heroHome, heroServices, heroAbout],
+    id: 1,
+    title: "3D PREVIEW",
+    description: "High-quality 3D visualization before execution",
+    images: mapImages(DPREVIEW),
   },
   {
-    id: "bedroom",
-    title: "Bedroom",
+    id: 2,
+    title: "ON SITE WORK",
+    description: "Live execution and construction progress",
+    images: mapImages(ON_SITE_WORK),
+  },
+  {
+    id: 3,
+    title: "RESIDENTIAL KITCHEN",
+    description: "Modern and functional kitchen designs",
+    images: mapImages(RESIDENTIAL_KITCHEN),
+  },
+  {
+    id: 4,
+    title: "RESIDENTIAL BED ROOM",
     description: "Comfort-focused bedroom interiors",
-    cover: heroServices,
-    images: [heroServices, heroHome, heroAbout],
+    images: mapImages(RESIDENTIAL_BED_ROOM),
   },
   {
-    id: "living-room",
-    title: "Living Room",
-    description: "Elegant and spacious living areas",
-    cover: heroAbout,
-    images: [heroAbout, heroHome, heroServices],
-  },
-  {
-    id: "bathroom",
-    title: "Bathroom",
-    description: "Luxury and functional bathroom designs",
-    cover: heroHome,
-    images: [heroHome, heroAbout],
-  },
-  {
-    id: "office",
-    title: "Office / Commercial",
-    description: "Professional and productive commercial spaces",
-    cover: heroServices,
-    images: [heroServices, heroHome],
+    id: 5,
+    title: "POOJA ROOM",
+    description: "Traditional yet elegant pooja room designs",
+    images: mapImages(POOJA_ROOM),
   },
 ];
 
@@ -59,7 +86,7 @@ const Projects = () => {
 
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center bg-gradient-to-br from-primary to-orange-600">
-        <div className="container mx-auto px-4 relative z-10 text-white">
+        <div className="container mx-auto px-4 text-white">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Design Categories
           </h1>
@@ -83,15 +110,20 @@ const Projects = () => {
                 className="cursor-pointer overflow-hidden group hover:shadow-xl transition-all"
               >
                 <div className="relative h-72">
+                  {/* ✅ First image as cover */}
                   <img
-                    src={cat.cover}
+                    src={cat.images[0]}
                     alt={cat.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/40" />
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <h3 className="text-2xl font-bold">{cat.title}</h3>
-                    <p className="text-sm opacity-90">{cat.description}</p>
+                  <div className="absolute bottom-6 left-6">
+                    <h3 className="text-2xl font-bold text-primary">
+                      {cat.title}
+                    </h3>
+                    <p className="text-sm text-white/90">
+                      {cat.description}
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -105,16 +137,18 @@ const Projects = () => {
         <DialogContent className="max-w-6xl w-[95vw] p-0 overflow-hidden [&>button]:hidden">
           {activeCategory && (
             <div className="flex flex-col h-[85vh]">
+
               {/* Modal Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b">
                 <div>
-                  <h2 className="text-2xl font-bold">{activeCategory.title}</h2>
+                  <h2 className="text-2xl font-bold text-primary uppercase tracking-wide">
+                    {activeCategory.title}
+                  </h2>
                   <p className="text-sm text-muted-foreground">
                     {activeCategory.description}
                   </p>
                 </div>
 
-                {/* SINGLE Close Button */}
                 <Button
                   variant="ghost"
                   size="icon"
@@ -127,21 +161,25 @@ const Projects = () => {
               {/* Gallery */}
               <div className="flex-1 overflow-y-auto p-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {activeCategory.images.map((img: string, index: number) => (
-                    <div
-                      key={index}
-                      className="overflow-hidden rounded-lg group"
-                    >
-                      <img
-                        src={img}
-                        alt=""
-                        className="w-full h-60 sm:h-64 lg:h-72 object-cover 
-                               group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  ))}
+                  {activeCategory.images.map(
+                    (img: string, index: number) => (
+                      <div
+                        key={index}
+                        className="overflow-hidden rounded-lg group"
+                      >
+                        <img
+                          src={img}
+                          alt=""
+                          loading="lazy"
+                          className="w-full h-60 sm:h-64 lg:h-72 object-cover 
+                                     group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
+
             </div>
           )}
         </DialogContent>
