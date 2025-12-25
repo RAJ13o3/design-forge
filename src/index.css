@@ -10,74 +10,82 @@ All colors MUST be HSL.
   :root {
     --background: 0 0% 100%;
     --foreground: 16 50% 15%;
-    
+
     --card: 0 0% 100%;
     --card-foreground: 16 50% 15%;
-    
+
     --popover: 0 0% 100%;
     --popover-foreground: 16 50% 15%;
-    
-    --primary: 24 95% 53%;
+
+    --primary: 24 85% 53%;
     --primary-foreground: 0 0% 100%;
-    
-    --secondary: 16 50% 15%;
+
+    --secondary: 16 20% 15%;
     --secondary-foreground: 0 0% 100%;
-    
+
     --muted: 30 20% 95%;
     --muted-foreground: 16 25% 45%;
-    
+
     --accent: 24 95% 53%;
     --accent-foreground: 0 0% 100%;
-    
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    
+
     --border: 30 20% 90%;
     --input: 30 20% 90%;
     --ring: 24 95% 53%;
-    
+
     --radius: 0.5rem;
-    
+
     --construction-orange: 24 95% 53%;
     --construction-brown: 16 50% 15%;
     --construction-cream: 30 25% 97%;
     --construction-light-brown: 16 30% 85%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(24 95% 53%) 0%, hsl(30 90% 45%) 100%);
-    --gradient-hero: linear-gradient(to bottom right, hsl(16 50% 15% / 0.95), hsl(16 50% 15% / 0.85));
-    
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(24 95% 53%) 0%,
+      hsl(30 90% 45%) 100%
+    );
+    --gradient-hero: linear-gradient(
+      to bottom right,
+      hsl(16 50% 15% / 0.95),
+      hsl(16 50% 15% / 0.85)
+    );
+
     --shadow-soft: 0 4px 24px hsl(24 95% 53% / 0.08);
     --shadow-medium: 0 8px 32px hsl(16 50% 15% / 0.12);
     --shadow-strong: 0 12px 48px hsl(16 50% 15% / 0.18);
-    
+
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
     --background: 16 50% 10%;
     --foreground: 30 25% 97%;
-    
+
     --card: 16 50% 15%;
     --card-foreground: 30 25% 97%;
-    
+
     --popover: 16 50% 15%;
     --popover-foreground: 30 25% 97%;
-    
+
     --primary: 24 95% 53%;
     --primary-foreground: 0 0% 100%;
-    
+
     --secondary: 16 40% 20%;
     --secondary-foreground: 30 25% 97%;
-    
+
     --muted: 16 40% 20%;
     --muted-foreground: 30 15% 60%;
-    
+
     --accent: 24 95% 53%;
     --accent-foreground: 0 0% 100%;
-    
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 30 25% 97%;
-    
+
     --border: 16 40% 25%;
     --input: 16 40% 25%;
     --ring: 24 95% 53%;
@@ -92,11 +100,16 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold text-secondary;
   }
-  
+
   .gradient-text {
     @apply bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent;
   }

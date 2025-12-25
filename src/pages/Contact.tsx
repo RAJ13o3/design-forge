@@ -66,7 +66,9 @@ const Contact = () => {
       <section className="relative py-24 bg-gradient-to-br from-secondary to-secondary/90">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+              Contact Us
+            </h1>
             <p className="text-xl">Let's Talk About Your Project</p>
           </div>
         </div>
@@ -116,12 +118,9 @@ const Contact = () => {
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-bold mb-2">Call or WhatsApp</h3>
+                      <h3 className="font-bold mb-2">Call Us </h3>
                       <p className="text-sm text-muted-foreground">
-                        Phone: +91 9227415715
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        WhatsApp: +91 9228415715
+                        Phone: +91 2714355391
                       </p>
                     </div>
                   </div>
@@ -156,7 +155,7 @@ const Contact = () => {
                         Monday to Saturday
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        10:00 AM - 7:00 PM
+                        10:00 AM - 6:00 PM
                       </p>
                     </div>
                   </div>

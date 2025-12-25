@@ -47,7 +47,7 @@ const SiteDevelopment = () => {
       <section className="relative py-24 bg-gradient-to-br from-secondary to-secondary/90">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Site Development</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">Site Development</h1>
             <p className="text-xl mb-8">
               Comprehensive land preparation and infrastructure development services to make your site construction-ready
             </p>

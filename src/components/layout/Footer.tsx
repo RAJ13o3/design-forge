@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Facebook,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 import logo from "@/assets/shilp-logo.png";
 
 const Footer = () => {
@@ -9,33 +16,52 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <img src={logo} alt="Shilp Construction" className="h-16 mb-4 brightness-0 invert" />
+            <img
+              src={logo}
+              alt="Shilp Construction"
+              className="h-16 mb-4 bg-white p-1.5"
+            />
             <p className="text-sm text-secondary-foreground/80">
-              Transforming ideas into inspiring spaces with purpose, precision, and passion.
+              Transforming ideas into inspiring spaces with purpose, precision,
+              and passion.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-secondary-foreground">Quick Links</h3>
+            <h3 className="font-bold text-lg mb-4 text-secondary-foreground">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-sm hover:text-primary transition-colors">
+                <Link
+                  to="/about"
+                  className="text-sm hover:text-primary transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm hover:text-primary transition-colors">
+                <Link
+                  to="/services"
+                  className="text-sm hover:text-primary transition-colors"
+                >
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-sm hover:text-primary transition-colors">
+                <Link
+                  to="/projects"
+                  className="text-sm hover:text-primary transition-colors"
+                >
                   Projects
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="text-sm hover:text-primary transition-colors">
+                <Link
+                  to="/faq"
+                  className="text-sm hover:text-primary transition-colors"
+                >
                   FAQ
                 </Link>
               </li>
@@ -44,7 +70,9 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-secondary-foreground">Our Services</h3>
+            <h3 className="font-bold text-lg mb-4 text-secondary-foreground">
+              Our Services
+            </h3>
             <ul className="space-y-2 text-sm text-secondary-foreground/80">
               <li>Residential Construction</li>
               <li>Commercial Construction</li>
@@ -56,7 +84,9 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-secondary-foreground">Contact Us</h3>
+            <h3 className="font-bold text-lg mb-4 text-secondary-foreground">
+              Contact Us
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />
@@ -66,22 +96,29 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Phone className="h-4 w-4 flex-shrink-0 text-primary" />
-                <a href="tel:+919227415715" className="hover:text-primary transition-colors">
-                  +91 9227415715
+                <a
+                  href="tel:+912714355391"
+                  className="hover:text-primary transition-colors"
+                >
+                  +91 2714355391
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Mail className="h-4 w-4 flex-shrink-0 text-primary" />
-                <a href="mailto:info@shilpconstruction.in" className="hover:text-primary transition-colors">
+                <a
+                  href="mailto:info@shilpconstruction.in"
+                  className="hover:text-primary transition-colors"
+                >
                   info@shilpconstruction.in
                 </a>
               </li>
             </ul>
             <div className="flex gap-4 mt-4">
-              <a href="#" className="hover:text-primary transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              <a
+                href="https://www.instagram.com/shilp.construction"
+                className="hover:text-primary transition-colors"
+                target="_blank"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
               <a href="#" className="hover:text-primary transition-colors">
@@ -92,7 +129,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-secondary-foreground/20 mt-8 pt-8 text-center text-sm text-secondary-foreground/80">
-          <p>© {new Date().getFullYear()} Shilp Construction. All Rights Reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Shilp Construction. All Rights
+            Reserved.
+          </p>
         </div>
       </div>
     </footer>
