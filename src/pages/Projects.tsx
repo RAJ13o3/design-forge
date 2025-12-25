@@ -9,10 +9,9 @@ import { X } from "lucide-react";
 /* ----------------------------------
    Vite-safe image imports (STATIC)
 ----------------------------------- */
-const DPREVIEW = import.meta.glob(
-  "@/assets/3DPREVIEW/*.{jpg,jpeg,png,webp}",
-  { eager: true }
-);
+const DPREVIEW = import.meta.glob("@/assets/3DPREVIEW/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+});
 
 const ON_SITE_WORK = import.meta.glob(
   "@/assets/ON_SITE_WORK/*.{jpg,jpeg,png,webp}",
@@ -46,31 +45,31 @@ const mapImages = (images: Record<string, any>) =>
 const categories = [
   {
     id: 1,
-    title: "3D PREVIEW",
+    title: "Architectural 3D View",
     description: "High-quality 3D visualization before execution",
     images: mapImages(DPREVIEW),
   },
   {
     id: 2,
-    title: "ON SITE WORK",
+    title: "On-Site Construction",
     description: "Live execution and construction progress",
     images: mapImages(ON_SITE_WORK),
   },
   {
     id: 3,
-    title: "RESIDENTIAL KITCHEN",
+    title: "Kitchen",
     description: "Modern and functional kitchen designs",
     images: mapImages(RESIDENTIAL_KITCHEN),
   },
   {
     id: 4,
-    title: "RESIDENTIAL BED ROOM",
+    title: "Bed Room",
     description: "Comfort-focused bedroom interiors",
     images: mapImages(RESIDENTIAL_BED_ROOM),
   },
   {
     id: 5,
-    title: "POOJA ROOM",
+    title: "Pooja Room",
     description: "Traditional yet elegant pooja room designs",
     images: mapImages(POOJA_ROOM),
   },
@@ -121,9 +120,7 @@ const Projects = () => {
                     <h3 className="text-2xl font-bold text-primary">
                       {cat.title}
                     </h3>
-                    <p className="text-sm text-white/90">
-                      {cat.description}
-                    </p>
+                    <p className="text-sm text-white/90">{cat.description}</p>
                   </div>
                 </div>
               </Card>
@@ -137,7 +134,6 @@ const Projects = () => {
         <DialogContent className="max-w-6xl w-[95vw] p-0 overflow-hidden [&>button]:hidden">
           {activeCategory && (
             <div className="flex flex-col h-[85vh]">
-
               {/* Modal Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b">
                 <div>
@@ -161,25 +157,22 @@ const Projects = () => {
               {/* Gallery */}
               <div className="flex-1 overflow-y-auto p-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {activeCategory.images.map(
-                    (img: string, index: number) => (
-                      <div
-                        key={index}
-                        className="overflow-hidden rounded-lg group"
-                      >
-                        <img
-                          src={img}
-                          alt=""
-                          loading="lazy"
-                          className="w-full h-60 sm:h-64 lg:h-72 object-cover 
+                  {activeCategory.images.map((img: string, index: number) => (
+                    <div
+                      key={index}
+                      className="overflow-hidden rounded-lg group"
+                    >
+                      <img
+                        src={img}
+                        alt=""
+                        loading="lazy"
+                        className="w-full h-60 sm:h-64 lg:h-72 object-cover 
                                      group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    )
-                  )}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
-
             </div>
           )}
         </DialogContent>
